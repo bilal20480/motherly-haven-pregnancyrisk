@@ -8,7 +8,10 @@ model = joblib.load('maternal_health_rf_model.pkl')
 le = joblib.load('label_encoder.pkl')
 
 # Configure Gemini API
-genai.configure(api_key="AIzaSyCnIkKmtRYHwJOMGGa244-XdWXYtIR_RwE")  # Replace with your actual API key
+api_key=st.secrets["bilal_api"]
+
+# Configure Gemini API key
+genai.configure(api_key=api_key)  # Replace with your actual API key
 gemini_model = genai.GenerativeModel('gemini-2.0-flash')
 
 # Set page config
